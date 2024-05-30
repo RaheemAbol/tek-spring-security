@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit User</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+<div class="container">
+    <h2>Edit User</h2>
+    <form th:action="@{/users/edit/{id}(id=${user.id})}" th:object="${user}" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="tel">Phone Number:</label>
+            <input type="text" id="tel" th:field="*{tel}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" th:field="*{password}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="refer">Refer:</label>
+            <input type="text" id="refer" th:field="*{refer}" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="contact">Preferred Contact Method:</label>
+            <input type="text" id="contact" th:field="*{contact}" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="terms">Agreed to Terms:</label>
+            <input type="checkbox" id="terms" th:field="*{terms}" />
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+</body>
+</html>
